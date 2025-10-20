@@ -1,0 +1,94 @@
+✅ Dataset Loaded Successfully!
+Shape: (11522175, 18)
+  Date received                                            Product  ... Consumer disputed? Complaint ID
+0    2020-07-06  Credit reporting, credit repair services, or o...  ...                NaN      3730948
+1    2025-10-14  Credit reporting or other personal consumer re...  ...                NaN     16558024
+2    2025-10-10  Credit reporting or other personal consumer re...  ...                NaN     16507707
+3    2025-10-15  Credit reporting or other personal consumer re...  ...                NaN     16593757
+4    2025-10-16  Credit reporting or other personal consumer re...  ...                NaN     16623506
+
+[5 rows x 18 columns]
+
+📊 Category Distribution:
+label
+1    371629
+3    134837
+2      9461
+Name: count, dtype: int64
+
+🧹 Sample Cleaned Text:
+1019    re attentively review my formal writ composed ...
+1383    this complaint is against s s recovery inc for...
+1724    it stated that i owe a balance of if i paid in...
+1788    i hired xxxx xxxx xxxx to negotiate with my cr...
+1859    sps select portfolio servicing of xxxx xxxx xx...
+Name: clean_text, dtype: object
+
+✅ Data split completed!
+Training samples: 412741
+Testing samples: 103186
+
+🔹 Training Naive Bayes...
+✅ Accuracy for Naive Bayes: 0.9521
+              precision    recall  f1-score   support
+
+           1       0.98      0.97      0.97     74326
+           2       0.70      0.31      0.43      1892
+           3       0.90      0.96      0.93     26968
+
+    accuracy                           0.95    103186
+   macro avg       0.86      0.75      0.78    103186
+weighted avg       0.95      0.95      0.95    103186
+
+💾 Saved model to: C:\Users\Parameshwar B\OneDrive\Desktop\newfollder\models\naive_bayes_model.pkl
+
+🔹 Training Logistic Regression...
+✅ Accuracy for Logistic Regression: 0.9696
+              precision    recall  f1-score   support
+
+           1       0.98      0.98      0.98     74326
+           2       0.76      0.50      0.61      1892
+           3       0.96      0.96      0.96     26968
+
+    accuracy                           0.97    103186
+   macro avg       0.90      0.82      0.85    103186
+weighted avg       0.97      0.97      0.97    103186
+
+💾 Saved model to: C:\Users\Parameshwar B\OneDrive\Desktop\newfollder\models\logistic_regression_model.pkl
+
+🔹 Training Linear SVM...
+✅ Accuracy for Linear SVM: 0.9695
+              precision    recall  f1-score   support
+
+           1       0.98      0.98      0.98     74326
+           2       0.78      0.47      0.59      1892
+           3       0.96      0.96      0.96     26968
+
+    accuracy                           0.97    103186
+   macro avg       0.90      0.81      0.84    103186
+weighted avg       0.97      0.97      0.97    103186
+
+💾 Saved model to: C:\Users\Parameshwar B\OneDrive\Desktop\newfollder\models\linear_svm_model.pkl
+💾 Saved vectorizer to: C:\Users\Parameshwar B\OneDrive\Desktop\newfollder\models\tfidf_vectorizer.pkl
+c:\Users\Parameshwar B\OneDrive\Desktop\newfollder\tempCodeRunnerFile.py:123: FutureWarning: 
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.barplot(x=list(results.keys()), y=list(results.values()), palette="viridis")
+
+🏆 Best Performing Model: Logistic Regression
+
+🔮 Sample Predictions:
+Text: I was charged extra fees on my mortgage loan.
+→ Predicted Category: Mortgage
+
+Text: They reported incorrect information on my credit report.
+→ Predicted Category: Debt collection
+
+Text: The debt collector was rude and harassed me.
+→ Predicted Category: Debt collection
+
+Text: My consumer loan application was rejected unfairly.
+→ Predicted Category: Mortgage
+
+🏁 Best model saved at: C:\Users\Parameshwar B\OneDrive\Desktop\newfollder\models\best_model_logistic_regression.pkl
